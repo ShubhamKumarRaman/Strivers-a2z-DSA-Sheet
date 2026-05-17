@@ -60,6 +60,24 @@ public class J01LongestSubstring {
         return longest;
     }
 
+    // Approach 4:- Most Optimal Solution
+    public static int longestSubstring4(String s) {
+        int n = s.length();
+        int left = 0;
+        int maxLength = 0;
+        int[] lastSeen = new int[128];
+        for (int right = 0; right < n; right++) {
+            char ch = s.charAt(right);
+
+            left = Math.max(left, lastSeen[ch]);
+
+            maxLength = Math.max(maxLength, right - left + 1);
+
+            lastSeen[ch] = right + 1;
+        }
+        return maxLength;
+    }
+
     public static void main(String args[]) {
         String s1 = "abcabcbb";
         String s2 = "bbbbb";
@@ -79,6 +97,11 @@ public class J01LongestSubstring {
         System.out.println("Approach 3:- " + longestSubstring3(s2));
         System.out.println("Approach 3:- " + longestSubstring3(s3));
         System.out.println("Approach 3:- " + longestSubstring3(s4));
+        System.out.println("-".repeat(40));
+        System.out.println("Approach 4:- " + longestSubstring4(s1));
+        System.out.println("Approach 4:- " + longestSubstring4(s2));
+        System.out.println("Approach 4:- " + longestSubstring4(s3));
+        System.out.println("Approach 4:- " + longestSubstring4(s4));
         System.out.println("-".repeat(40));
     }
 }
