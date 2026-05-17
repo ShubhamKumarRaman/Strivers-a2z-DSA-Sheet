@@ -1,4 +1,6 @@
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 public class J01LongestSubstring {
@@ -37,7 +39,25 @@ public class J01LongestSubstring {
                 longest = Math.max(longest, j - i + 1);
             }
         }
-        return longest;     
+        return longest;
+    }
+
+    // Approach 3:- Optimal solution
+    public static int longestSubstring3(String s) {
+        int n = s.length();
+        int L = 0;
+        int longest = 0;
+        Map<Character, Integer> map = new HashMap<>();
+
+        for (int R = 0; R < n; R++) {
+            char currentCharacter = s.charAt(R);
+            if (map.containsKey(currentCharacter)) {
+                L = Math.max(L, map.get(currentCharacter) + 1);
+            }
+            map.put(currentCharacter, R);
+            longest = Math.max(longest, R - L + 1);
+        }
+        return longest;
     }
 
     public static void main(String args[]) {
@@ -47,13 +67,18 @@ public class J01LongestSubstring {
         String s4 = "abc";
         System.out.println("Approach 1:- " + longestSubstring(s1));
         System.out.println("Approach 1:- " + longestSubstring(s2));
-        System.out.println("Approach 1:- " + longestSubstring(s3)+" X 3");
+        System.out.println("Approach 1:- " + longestSubstring(s3) + " X 3");
         System.out.println("Approach 1:- " + longestSubstring(s4));
         System.out.println("-".repeat(40));
-        System.out.println("Approach 1:- " + longestSubstring2(s1));
-        System.out.println("Approach 1:- " + longestSubstring2(s2));
-        System.out.println("Approach 1:- " + longestSubstring2(s3));
-        System.out.println("Approach 1:- " + longestSubstring2(s4));
+        System.out.println("Approach 2:- " + longestSubstring2(s1));
+        System.out.println("Approach 2:- " + longestSubstring2(s2));
+        System.out.println("Approach 2:- " + longestSubstring2(s3));
+        System.out.println("Approach 2:- " + longestSubstring2(s4));
+        System.out.println("-".repeat(40));
+        System.out.println("Approach 3:- " + longestSubstring3(s1));
+        System.out.println("Approach 3:- " + longestSubstring3(s2));
+        System.out.println("Approach 3:- " + longestSubstring3(s3));
+        System.out.println("Approach 3:- " + longestSubstring3(s4));
         System.out.println("-".repeat(40));
     }
 }
