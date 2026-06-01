@@ -5,6 +5,24 @@ import java.util.Set;
 
 public class J01LongestSubstring {
     // My approach XX Not working
+    // Use a HashSet to keep track of unique characters in the current substring.
+    // When a duplicate character is found, reset the current substring, update the
+    // maximum length, and start a new substring from the duplicate character.
+    
+    // Pseudocode
+    // Initialize empty HashSet
+    // Initialize longest = 0, current = 0
+
+    // For each character ch in string:
+    // If ch exists in HashSet:
+    // longest = max(longest, current)
+    // Clear HashSet
+    // Add ch to HashSet
+    // current = 1
+    // Else:
+    // Add ch to HashSet
+    // current++
+    // Return max(longest, current)
     public static int longestSubstring(String s) {
         Set<Character> set = new HashSet<>();
         int longest = 0;
