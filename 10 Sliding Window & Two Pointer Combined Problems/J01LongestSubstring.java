@@ -8,7 +8,7 @@ public class J01LongestSubstring {
     // Use a HashSet to keep track of unique characters in the current substring.
     // When a duplicate character is found, reset the current substring, update the
     // maximum length, and start a new substring from the duplicate character.
-    
+
     // Pseudocode
     // Initialize empty HashSet
     // Initialize longest = 0, current = 0
@@ -42,6 +42,33 @@ public class J01LongestSubstring {
     }
 
     // My approach 2 -> Generate all substring
+    /*
+     * Generate all possible substrings starting from each index and use a HashSet
+     * to track unique characters.
+     * If a duplicate character is encountered, stop expanding that substring and
+     * update the maximum length found so far.
+     * 
+     * Pseudocode
+     * Initialize longest = 0
+     * n = length of string
+     * 
+     * For i from 0 to n-1:
+     * Create empty HashSet seen
+     * 
+     * For j from i to n-1:
+     * currentChar = s[j]
+     * 
+     * If currentChar exists in seen:
+     * Break
+     * 
+     * Add currentChar to seen
+     * longest = max(longest, j - i + 1)
+     * 
+     * Return longest
+     * Complexity
+     * Time Complexity: O(n²)
+     * Space Complexity: O(min(n, charset_size))
+     */
     public static int longestSubstring2(String s) {
         int longest = 0;
         int n = s.length();
