@@ -1,3 +1,8 @@
+// *****
+// *****
+// *****
+// *****
+// *****
 package Patterns;
 
 public class J01Pattern {
