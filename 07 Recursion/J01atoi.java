@@ -62,9 +62,52 @@ public class J01atoi {
         return sign * result;
     }
 
+    public static int myAtoi3(String s) {
+        int n = s.length();
+        if (n == 0) {
+            return 0;
+        }
+        int i = 0;
+
+        // remove white space
+        while (i < n && s.charAt(i) == ' ') {
+            i++;
+        }
+        if (i == n) {
+            return 0;
+        }
+
+        // Handle sign
+        int sign = 1;
+        if (s.charAt(i) == '-') {
+            sign = -1;
+            i++;
+        } else if (s.charAt(i) == '+') {
+            i++;
+        }
+
+        // Convert digit
+        long result = 0;
+        while (i < n && Character.isDigit(s.charAt(i))) {
+            int digit = s.charAt(i) - '0';
+            result = result * 10 + digit;
+
+            if (sign * result <= Integer.MIN_VALUE) {
+                return Integer.MIN_VALUE;
+            }
+            if (sign * result >= Integer.MAX_VALUE) {
+                return Integer.MAX_VALUE;
+            }
+            i++;
+        }
+        return (int) (result * sign);
+    }
+
     public static void main(String args[]) {
         System.out.println(myAtoi("1337c0d3"));
         System.out.println(myAtoi("0-1"));
         System.out.println(myAtoi2("-91283472332"));
+        System.out.println(myAtoi3("words and 987"));
+        System.out.println(myAtoi3(" -042"));
     }
 }
