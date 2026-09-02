@@ -16,10 +16,15 @@ public class J02pow {
         }
         return x * (getPow(x, n - 1));
     }
+    
+    // Approach 2:- using Math.pow() method
+    public static double myPow2(double x, int n){
+        return (double) Math.pow(x, n);
+    }
 
     public static void main(String args[]) {
         System.out.println("Approach 1:- " + myPow(2.00, 10));
         System.out.println("Approach 1:- " + myPow(2.10000, 3));
-        // System.out.println("Approach 1:- " + myPow(2.00, -200000000));
+        System.out.println("Approach 2:- " + myPow2(2.00, -200000000));
     }
 }
