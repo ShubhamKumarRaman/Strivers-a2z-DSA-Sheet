@@ -134,6 +134,25 @@ public class J01SinglyLinkedList {
         current.next = current.next.next;
     }
 
+    // Update operation
+    void updateAtPosition(int position, int newData) {
+        if (position <= 0) {
+            System.out.println("Invalid position!");
+            return;
+        }
+        Node current = head;
+        for (int i = 1; i < position - 1 && current != null; i++) {
+            current = current.next;
+        }
+        if (current == null) {
+            System.out.println("Position out of bound!");
+            return;
+        }
+        int oldData = current.data;
+        current.data = newData;
+        System.out.println("Updated " + oldData + " to " + newData + " at position " + position);
+    }
+
     public static void main(String args[]) {
 
     }
