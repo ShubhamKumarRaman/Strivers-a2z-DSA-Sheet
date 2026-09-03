@@ -222,6 +222,14 @@ public class J01SinglyLinkedList {
         System.out.println("Length: " + count);
     }
 
+    void isEmpty() {
+        if (head == null) {
+            System.out.println("List is empty.");
+        } else {
+            System.out.println("List is not empty.");
+        }
+    }
+
     public static void main(String args[]) {
 
     }
