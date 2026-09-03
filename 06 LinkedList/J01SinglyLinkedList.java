@@ -153,6 +153,19 @@ public class J01SinglyLinkedList {
         System.out.println("Updated " + oldData + " to " + newData + " at position " + position);
     }
 
+    void updateByValue(int oldValue, int newValue) {
+        Node current = head;
+        while (current != null && current.data != oldValue) {
+            current = current.next;
+        }
+        if (current == null) {
+            System.out.println("Value " + oldValue + " not found!");
+            return;
+        }
+        current.data = newValue;
+        System.out.println("Updated " + oldValue + " to " + newValue);
+    }
+
     public static void main(String args[]) {
 
     }
