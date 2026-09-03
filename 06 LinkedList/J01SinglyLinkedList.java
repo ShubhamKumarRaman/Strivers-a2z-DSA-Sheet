@@ -58,6 +58,16 @@ public class J01SinglyLinkedList {
         System.out.println("Inserted " + data + " at position " + position);
     }
 
+    // Delete operations
+    void deleteAtBeginning() {
+        if (head == null) {
+            System.out.println("List is empty!");
+            return;
+        }
+        System.out.println("Deleted " + head.data);
+        head = head.next;
+    }
+
     public static void main(String args[]) {
 
     }
