@@ -166,6 +166,21 @@ public class J01SinglyLinkedList {
         System.out.println("Updated " + oldValue + " to " + newValue);
     }
 
+    // Read/ Search operation
+    void searchByValue(int value) {
+        Node current = head;
+        int position = 1;
+        while (current != null && current.data != value) {
+            current = current.next;
+            position++;
+        }
+        if (current == null) {
+            System.out.println("Value " + value + " not found!");
+        } else {
+            System.out.println("Value " + value + " found at position " + position);
+        }
+    }
+
     public static void main(String args[]) {
 
     }
