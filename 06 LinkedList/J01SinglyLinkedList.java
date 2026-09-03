@@ -42,9 +42,13 @@ public class J01SinglyLinkedList {
             return;
         }
 
-        Node newNode = new Node(data);
+        if (position == 1) {
+            insertAtBeginning(data);
+            return;
+        }
+
         Node current = head;
-        for (int i = 1; i < position && current != null; i++) {
+        for (int i = 1; i < position - 1 && current != null; i++) {
             current = current.next;
         }
 
@@ -53,6 +57,7 @@ public class J01SinglyLinkedList {
             return;
         }
 
+        Node newNode = new Node(data);
         newNode.next = current.next;
         current.next = newNode;
         System.out.println("Inserted " + data + " at position " + position);
@@ -84,7 +89,7 @@ public class J01SinglyLinkedList {
         while (current.next.next != null) {
             current = current.next;
         }
-        System.out.println("Deleted " + current.data);
+        System.out.println("Deleted " + current.next.data);
         current.next = null;
     }
 
@@ -102,7 +107,7 @@ public class J01SinglyLinkedList {
             return;
         }
         Node current = head;
-        for (int i = 1; i < position && current.next != null; i++) {
+        for (int i = 1; i < position - 1 && current.next != null; i++) {
             current = current.next;
         }
         if (current.next == null) {
@@ -141,7 +146,7 @@ public class J01SinglyLinkedList {
             return;
         }
         Node current = head;
-        for (int i = 1; i < position - 1 && current != null; i++) {
+        for (int i = 1; i < position && current != null; i++) {
             current = current.next;
         }
         if (current == null) {
@@ -187,7 +192,7 @@ public class J01SinglyLinkedList {
             return;
         }
         Node current = head;
-        for (int i = 1; i < position - 1 && current != null; i++) {
+        for (int i = 1; i < position && current != null; i++) {
             current = current.next;
         }
         if (current == null) {
@@ -278,6 +283,99 @@ public class J01SinglyLinkedList {
     }
 
     public static void main(String args[]) {
+        J01SinglyLinkedList list = new J01SinglyLinkedList();
+        Scanner scanner = new Scanner(System.in);
 
+        int choice, data, position, oldValue, newValue;
+
+        do {
+            list.displayMenu();
+            System.out.print("Enter your choice: ");
+            choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter data to insert: ");
+                    data = scanner.nextInt();
+                    list.insertAtBeginning(data);
+                    break;
+                case 2:
+                    System.out.print("Enter data to insert: ");
+                    data = scanner.nextInt();
+                    list.insertAtEnd(data);
+                    break;
+                case 3:
+                    System.out.print("Enter data to insert: ");
+                    data = scanner.nextInt();
+                    System.out.print("Enter position: ");
+                    position = scanner.nextInt();
+                    list.insertAtPosition(data, position);
+                    break;
+                case 4:
+                    list.deleteAtBeginning();
+                    break;
+                case 5:
+                    list.deleteAtEnd();
+                    break;
+                case 6:
+                    System.out.print("Enter position to delete: ");
+                    position = scanner.nextInt();
+                    list.deleteAtPosition(position);
+                    break;
+                case 7:
+                    System.out.print("Enter value to delete: ");
+                    data = scanner.nextInt();
+                    list.deleteByValue(data);
+                    break;
+                case 8:
+                    System.out.print("Enter new data: ");
+                    newValue = scanner.nextInt();
+                    System.out.print("Enter position: ");
+                    position = scanner.nextInt();
+                    list.updateAtPosition(position, newValue);
+                    break;
+                case 9:
+                    System.out.print("Enter old value: ");
+                    oldValue = scanner.nextInt();
+                    System.out.print("Enter new value: ");
+                    newValue = scanner.nextInt();
+                    list.updateByValue(oldValue, newValue);
+                    break;
+                case 10:
+                    System.out.print("Enter value to search: ");
+                    data = scanner.nextInt();
+                    list.searchByValue(data);
+                    break;
+                case 11:
+                    System.out.print("Enter position: ");
+                    position = scanner.nextInt();
+                    list.searchByPosition(position);
+                    break;
+                case 12:
+                    list.printList();
+                    break;
+                case 13:
+                    list.getLength();
+                    break;
+                case 14:
+                    list.isEmpty();
+                    break;
+                case 15:
+                    list.getFirst();
+                    break;
+                case 16:
+                    list.getLast();
+                    break;
+                case 17:
+                    list.clear();
+                    break;
+                case 0:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice! Please try again.");
+            }
+        } while (choice != 0);
+
+        scanner.close();
     }
 }
