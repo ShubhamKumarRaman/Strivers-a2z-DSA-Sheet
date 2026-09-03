@@ -230,6 +230,13 @@ public class J01SinglyLinkedList {
         }
     }
 
+    void clear() {
+        head = null;
+        System.out.println("List cleared.");
+    }
+
+    
+
     public static void main(String args[]) {
 
     }
