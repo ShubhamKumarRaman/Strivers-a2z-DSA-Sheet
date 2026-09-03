@@ -88,6 +88,27 @@ public class J01SinglyLinkedList {
         current.next = null;
     }
 
+    void deleteAtPosition(int position) {
+        if (position <= 0) {
+            System.out.println("Invalid position");
+            return;
+        }
+        if (head == null) {
+            System.out.println("List is empty!");
+            return;
+        }
+        Node current = head;
+        for (int i = 1; i < position && current.next != null; i++) {
+            current = current.next;
+        }
+        if (current.next == null) {
+            System.out.println("Position out of bound!");
+            return;
+        }
+        System.out.println("Deleted " + current.next.data);
+        current.next = current.next.next;
+    }
+
     public static void main(String args[]) {
 
     }
