@@ -197,6 +197,21 @@ public class J01SinglyLinkedList {
         }
     }
 
+    // Utility Operations
+    void printList() {
+        if (head == null) {
+            System.out.println("List is Empty!");
+            return;
+        }
+        Node current = head;
+        System.out.print("Linked List:- ");
+        while (current != null) {
+            System.out.print(current.data + " -> ");
+            current = current.next;
+        }
+        System.out.println("null");
+    }
+
     public static void main(String args[]) {
 
     }
