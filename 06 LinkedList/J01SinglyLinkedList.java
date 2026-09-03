@@ -68,6 +68,26 @@ public class J01SinglyLinkedList {
         head = head.next;
     }
 
+    void deleteAtEnd() {
+        if (head == null) {
+            System.out.println("List is empty!");
+            return;
+        }
+
+        if (head.next == null) {
+            System.out.println("Deleted " + head.data);
+            head = null;
+            return;
+        }
+
+        Node current = head;
+        while (current.next.next != null) {
+            current = current.next;
+        }
+        System.out.println("Deleted " + current.data);
+        current.next = null;
+    }
+
     public static void main(String args[]) {
 
     }
