@@ -255,6 +255,28 @@ public class J01SinglyLinkedList {
         System.out.println("Last element: " + current.data);
     }
 
+    void displayMenu() {
+        System.out.println("\n========== SINGLY LINKED LIST MENU ==========");
+        System.out.println("1. Insert at Beginning");
+        System.out.println("2. Insert at End");
+        System.out.println("3. Insert at Position");
+        System.out.println("4. Delete at Beginning");
+        System.out.println("5. Delete at End");
+        System.out.println("6. Delete at Position");
+        System.out.println("7. Delete by Value");
+        System.out.println("8. Update at Position");
+        System.out.println("9. Update by Value");
+        System.out.println("10. Search by Value");
+        System.out.println("11. Search by Position");
+        System.out.println("12. Display List");
+        System.out.println("13. Get Length");
+        System.out.println("14. Check if Empty");
+        System.out.println("15. Get First Element");
+        System.out.println("16. Get Last Element");
+        System.out.println("17. Clear List");
+        System.out.println("0. Exit");
+    }
+
     public static void main(String args[]) {
 
     }
