@@ -235,12 +235,24 @@ public class J01SinglyLinkedList {
         System.out.println("List cleared.");
     }
 
-    void getFirst(){
-        if(head==null){
+    void getFirst() {
+        if (head == null) {
             System.out.println("List is empty");
             return;
         }
-        System.out.println("First element: "+head.data);
+        System.out.println("First element: " + head.data);
+    }
+
+    void getLast() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        Node current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        System.out.println("Last element: " + current.data);
     }
 
     public static void main(String args[]) {
