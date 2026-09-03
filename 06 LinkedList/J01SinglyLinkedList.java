@@ -235,7 +235,13 @@ public class J01SinglyLinkedList {
         System.out.println("List cleared.");
     }
 
-    
+    void getFirst(){
+        if(head==null){
+            System.out.println("List is empty");
+            return;
+        }
+        System.out.println("First element: "+head.data);
+    }
 
     public static void main(String args[]) {
 
