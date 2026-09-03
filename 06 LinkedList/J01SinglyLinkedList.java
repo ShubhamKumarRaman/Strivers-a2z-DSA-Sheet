@@ -181,6 +181,22 @@ public class J01SinglyLinkedList {
         }
     }
 
+    void searchByPosition(int position) {
+        if (position <= 0) {
+            System.out.println("Invalid position");
+            return;
+        }
+        Node current = head;
+        for (int i = 1; i < position - 1 && current != null; i++) {
+            current = current.next;
+        }
+        if (current == null) {
+            System.out.println("Position out of bound!");
+        } else {
+            System.out.println("Data at position " + position + " is " + current.data);
+        }
+    }
+
     public static void main(String args[]) {
 
     }
