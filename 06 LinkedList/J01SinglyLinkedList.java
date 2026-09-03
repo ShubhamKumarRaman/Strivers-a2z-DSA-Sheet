@@ -36,6 +36,28 @@ public class J01SinglyLinkedList {
         System.out.println("Inserted " + data + " at end.");
     }
 
+    void insertAtPosition(int data, int position) {
+        if (position <= 0) {
+            System.out.println("Invalid position");
+            return;
+        }
+
+        Node newNode = new Node(data);
+        Node current = head;
+        for (int i = 1; i < position && current != null; i++) {
+            current = current.next;
+        }
+
+        if (current == null) {
+            System.out.println("Position out of bound!");
+            return;
+        }
+
+        newNode.next = current.next;
+        current.next = newNode;
+        System.out.println("Inserted " + data + " at position " + position);
+    }
+
     public static void main(String args[]) {
 
     }
