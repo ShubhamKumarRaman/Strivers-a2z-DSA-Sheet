@@ -11,7 +11,7 @@ public class J01Fibonacci {
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
-    // Using DP- Memoization vector
+    // Using DP- Memoization vector -> time- O(n), space- O(n)+O(n)
     public static int fibonacci2(Vector<Integer> v, int n) {
         if (n <= 1) {
             return n;
@@ -27,7 +27,7 @@ public class J01Fibonacci {
         return result;
     }
 
-    // Using DP - Memoization array
+    // Using DP - Memoization array -> time- O(n), space- O(n)+O(n)
     public static int fibonacci3(int[] dp, int n) {
         if (n <= 1) {
             return n;
@@ -38,7 +38,7 @@ public class J01Fibonacci {
         return dp[n] = fibonacci3(dp, n - 1) + fibonacci3(dp, n - 2);
     }
 
-    // Using DP - Tabulation array
+    // Using DP - Tabulation array -> time- O(n), space- O(n)
     public static int fibonacci4(int n) {
         if (n <= 1) {
             return n;
@@ -50,6 +50,21 @@ public class J01Fibonacci {
             dp[i] = dp[i - 1] + dp[i - 2];
         }
         return dp[n];
+    }
+
+    // Using DP - Tabulation using two variable -> time- O(n), space- O(1)
+    public static int fibonacci5(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        int prev2 = 0;
+        int prev1 = 1;
+        for (int i = 2; i <= n; i++) {
+            int curr = prev1 + prev2;
+            prev2 = prev1;
+            prev1 = curr;
+        }
+        return prev1;
     }
 
     public static void main(String[] args) {
@@ -65,5 +80,8 @@ public class J01Fibonacci {
 
         int n3 = 8;
         System.out.println(n3 + ":- " + fibonacci4(n3));
+
+        int n4 = 10;
+        System.out.println(n4 + ":- " + fibonacci5(n4));
     }
 }
